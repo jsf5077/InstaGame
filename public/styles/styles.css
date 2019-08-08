@@ -1,3 +1,11 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.image_container:hover {
+  transform: scale(1.25);
+}
+.image_container {
+  position: relative;
+  text-align: center;
+} 
