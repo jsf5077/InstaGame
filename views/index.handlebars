@@ -6,20 +6,32 @@
         <h2>This is our Home Page!</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="name-text">Name</label>
+            <input type="text" id="name-text" class="form-control" aria-describedby="name-text" placeholder="Enter Name Text">
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="console-text">Console</label>
+            <input type="text" id="console-text" class="form-control" aria-describedby="console-text" placeholder="Enter Console Text">
+          </div>
+          <div class="form-group">
+            <label for="sn-text">Screen Name</label>
+            <input type="text" id="sn-text" class="form-control" aria-describedby="sn-text" placeholder="Enter Screen Name">
+          </div>
+          <div class="form-group">
+            <label for="game-text">Game</label>
+            <input type="text" id="game-text" class="form-control" aria-describedby="game-text" placeholder="Enter Game Name">
+          </div>
+          <div class="form-group">
+            <label for="post-description">Post</label>
+            <textarea class="form-control" id="post-description" aria-describedby="post-description" placeholder="Enter Post Description"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
+        <h3>Posts:</h3>
+        <ul id="post-list" class="list-group">
+          {{#each posts}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="post/{{this.id}}">{{this.text}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
