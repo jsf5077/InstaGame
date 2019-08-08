@@ -38,7 +38,7 @@ var refreshPosts = function() {
   API.getPosts().then(function(data) {
     var $posts = data.map(function(post) {
       var $a = $("<a>")
-        .text(post.text)
+        .text(post.post)
         .attr("href", "/post/" + post.id);
 
       var $li = $("<li>")
