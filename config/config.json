@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "hollow215",
-    "database": "blogdb",
+    "password": "Runner6998!",
+    "database": "exampledb",
     "host": "localhost",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
