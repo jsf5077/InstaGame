@@ -1,33 +1,164 @@
 <div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+    <div class="container">
+      <div class="jumbotron row d-flex justify-content-between align-items-center">
+        <div class="col-md-6">
+          <h2>This is our Home Page!</h2>
+        </div>
+        <div class="col-3
+           justify-content-end p-0 m-0"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+            data-target="#myModal">Make a Post!</button></div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="col-8 offset-2">
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+      <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Your Post</h4>
+              </div>
+              <div class="modal-body">
+                <form class="clearfix mb-4" action="POST">
+                  <div class="form-group">
+                    <label for="genre-game">Genre</label>
+                      <select class="answer" id="genre-game">
+                        <option value="rpg">Role Playing Game</option>
+                        <option value="fps">First Person Shooter</option>
+                        <option value="sports">Sports</option>
+                        <option value="racing">Racing</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="strategy">Strategy</option>
+                        <option value="action">Action</option>
+                        <option value="puzzle">Puzzle</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="name-text">Name</label>
+                    <input type="text" id="name-text" class="form-control" aria-describedby="name-text"
+                      placeholder="Enter Name Text">
+                  </div>
+                  <div class="form-group">
+                    <label for="console-text">Console</label>
+                    <input type="text" id="console-text" class="form-control" aria-describedby="console-text"
+                      placeholder="Enter Console Text">
+                  </div>
+                  <div class="form-group">
+                    <label for="sn-text">In Game Screen Name</label>
+                    <input type="text" id="sn-text" class="form-control" aria-describedby="sn-text"
+                      placeholder="Enter Screen Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="game-text">Game</label>
+                    <input type="text" id="game-text" class="form-control" aria-describedby="game-text"
+                      placeholder="Enter Game Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="post-description">Post</label>
+                    <textarea class="form-control" id="post-description" aria-describedby="post-description"
+                      placeholder="Enter Post Description"></textarea>
+                  </div>
+                  <button id="submit" class="btn btn-primary float-right">Submit</button>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- First Photo Grid-->
+      <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+      </div>
+
+      <!-- Second Photo Grid-->
+      <div class="w3-row-padding w3-padding-16 w3-center">
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+        <div class="w3-quarter image_container">
+          <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+
+        </div>
+      </div>
+
+
+      <h3>Posts:</h3>
+
+
+      <ul id="post-list" class="list-group">
+        {{#each post}}
+        <li data-id="{{this.id}}" class="list-group-item d-flex justify-content-between align-items-center">
+          <a href="api/posts/{{this.id}}">{{this.name}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}}
+      </ul>
+
+    </div>
+  </div>
+
+
+  <hr>
+
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
+        gravida diam non fringilla.</p>
+      <p><a href="/api/posts">API Posts List</a></p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+
+  </footer>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
+  
