@@ -22,10 +22,23 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Create Your Post</h4>
               </div>
               <div class="modal-body">
                 <form class="clearfix mb-4" action="POST">
+                  <div class="form-group">
+                    <label for="genre-game">Genre</label>
+                      <select class="answer" id="genre-game">
+                        <option value="rpg">Role Playing Game</option>
+                        <option value="fps">First Person Shooter</option>
+                        <option value="sports">Sports</option>
+                        <option value="racing">Racing</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="strategy">Strategy</option>
+                        <option value="action">Action</option>
+                        <option value="puzzle">Puzzle</option>
+                      </select>
+                  </div>
                   <div class="form-group">
                     <label for="name-text">Name</label>
                     <input type="text" id="name-text" class="form-control" aria-describedby="name-text"
@@ -37,7 +50,7 @@
                       placeholder="Enter Console Text">
                   </div>
                   <div class="form-group">
-                    <label for="sn-text">Screen Name</label>
+                    <label for="sn-text">In Game Screen Name</label>
                     <input type="text" id="sn-text" class="form-control" aria-describedby="sn-text"
                       placeholder="Enter Screen Name">
                   </div>
@@ -111,7 +124,7 @@
       <ul id="post-list" class="list-group">
         {{#each post}}
         <li data-id="{{this.id}}" class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="post/{{this.id}}">{{this.name}}</a>
+          <a href="api/posts/{{this.id}}">{{this.name}}</a>
           <button class="btn btn-danger float-right delete">ｘ</button>
         </li>
         {{/each}}
@@ -129,6 +142,7 @@
       <h3>FOOTER</h3>
       <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
         gravida diam non fringilla.</p>
+      <p><a href="/api/posts">API Posts List</a></p>
       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </div>
 
@@ -147,3 +161,4 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/js/index.js"></script>
+  

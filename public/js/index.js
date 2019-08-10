@@ -6,6 +6,7 @@ var $consoleText = $("#console-text");
 var $snText = $("#sn-text");
 var $gameText = $("#game-text");
 var $postDescription = $("#post-description");
+var $genreGame = $("#genre-game");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -36,9 +37,10 @@ var API = {
 // refreshPosts gets new examples from the db and repopulates the list
 var refreshPosts = function() {
   API.getPosts().then(function(data) {
+    console.log(data);
     var $posts = data.map(function(post) {
       var $a = $("<a>")
-        .text(post.post)
+        .text("Genre: " + post.genre + " | Name: " + post.name + " | Console: " + post.console + " | Screenname: " + post.screenname + " | Game: " + post.game + " | Post: " + post.post + " | Timestamp: " + post.createdAt)
         .attr("href", "/post/" + post.id);
 
       var $li = $("<li>")
@@ -68,6 +70,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var post = {
+    genre: $genreGame.val().trim(),
     name: $nameText.val().trim(),
     console: $consoleText.val().trim(),
     screenname: $snText.val().trim(),
@@ -75,8 +78,8 @@ var handleFormSubmit = function(event) {
     post: $postDescription.val().trim()
   };
 
-  if (!(post.name && post.post)) {
-    alert("You must enter an _________!");
+  if (!(post.genre && post.name && post.console && post.game && post.post)) {
+    alert("You must enter in the required fields!");
     return;
   }
 
@@ -84,6 +87,7 @@ var handleFormSubmit = function(event) {
     refreshPosts();
   });
 
+  $genreGame.val("");
   $nameText.val("");
   $consoleText.val("");
   $snText.val("");
