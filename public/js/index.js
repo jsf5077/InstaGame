@@ -46,7 +46,7 @@ var refreshPosts = function() {
 
       var $li = $("<li>")
         .attr({
-          class: "list-group-item",
+          class: "list-group-item " + post.genre + " ",
           "data-id": post.id
         })
         .append($a);
