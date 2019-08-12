@@ -158,8 +158,8 @@
         <ul id="post-list" class="list-group">
           {{#each posts}}
           <li data-id="{{this.id}}"
-            class="list-group-item filterDiv {{this.genre}} d-flex justify-content-between align-items-center">
-            <a href="api/posts/{{this.id}}">{{this.title}}</a>
+            class="list-group-item filterDiv {{this.genre}} justify-content-between align-items-center">
+            <a href="/post/{{this.id}}">{{this.title}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
@@ -176,8 +176,7 @@
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
       <h3>FOOTER</h3>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
-        gravida diam non fringilla.</p>
+      <i class="fab fa-github fa-3x"></i>
       <p><a href="/api/posts">API Posts List</a></p>
       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </div>
