@@ -9,26 +9,25 @@
   position: relative;
   text-align: center;
 } 
-
-/* .filterDiv {
-  float: left;
+ .filterDiv {
+  /* float: left;
   background-color: #2196F3;
   color: #ffffff;
   width: 100px;
   line-height: 100px;
   text-align: center;
-  margin: 2px;
+  margin: 2px; */
   display: none;
-} */
+}  
 
-/* .show {
+ .show {
   display: block;
 }
 
-.container {
+/* .container {
   margin-top: 20px;
   overflow: hidden;
-}
+} */
 
 /* Style the buttons */
 /* .btn {
