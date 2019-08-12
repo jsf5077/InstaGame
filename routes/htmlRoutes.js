@@ -4,6 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Post.findAll({}).then(function(dbPosts) {
+      console.log(dbPosts);
       res.render("index", {
         msg: "Welcome!",
         posts: dbPosts

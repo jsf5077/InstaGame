@@ -2,6 +2,7 @@
 var $submitBtn = $("#submit");
 var $postList = $("#post-list");
 var $nameText = $("#name-text");
+var $titleText = $("#title-text");
 var $consoleText = $("#console-text");
 var $snText = $("#sn-text");
 var $gameText = $("#game-text");
@@ -40,7 +41,7 @@ var refreshPosts = function() {
     console.log(data);
     var $posts = data.map(function(post) {
       var $a = $("<a>")
-        .text("Genre: " + post.genre + " | Name: " + post.name + " | Console: " + post.console + " | Screenname: " + post.screenname + " | Game: " + post.game + " | Post: " + post.post + " | Timestamp: " + post.createdAt)
+        .text(post.title)
         .attr("href", "/post/" + post.id);
 
       var $li = $("<li>")
@@ -71,6 +72,7 @@ var handleFormSubmit = function(event) {
 
   var post = {
     genre: $genreGame.val().trim(),
+    title: $titleText.val().trim(),
     name: $nameText.val().trim(),
     console: $consoleText.val().trim(),
     screenname: $snText.val().trim(),
@@ -78,7 +80,16 @@ var handleFormSubmit = function(event) {
     post: $postDescription.val().trim()
   };
 
-  if (!(post.genre && post.name && post.console && post.game && post.post)) {
+  if (
+    !(
+      post.genre &&
+      post.title &&
+      post.name &&
+      post.console &&
+      post.game &&
+      post.post
+    )
+  ) {
     alert("You must enter in the required fields!");
     return;
   }
@@ -88,6 +99,7 @@ var handleFormSubmit = function(event) {
   });
 
   $genreGame.val("");
+  $titleText.val("");
   $nameText.val("");
   $consoleText.val("");
   $snText.val("");

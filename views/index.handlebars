@@ -28,16 +28,21 @@
                 <form class="clearfix mb-4" action="POST">
                   <div class="form-group">
                     <label for="genre-game">Genre</label>
-                      <select class="answer" id="genre-game">
-                        <option value="rpg">Role Playing Game</option>
-                        <option value="fps">First Person Shooter</option>
-                        <option value="sports">Sports</option>
-                        <option value="racing">Racing</option>
-                        <option value="adventure">Adventure</option>
-                        <option value="strategy">Strategy</option>
-                        <option value="action">Action</option>
-                        <option value="puzzle">Puzzle</option>
-                      </select>
+                    <select class="answer" id="genre-game">
+                      <option value="rpg">Role Playing Game</option>
+                      <option value="fps">First Person Shooter</option>
+                      <option value="sports">Sports</option>
+                      <option value="racing">Racing</option>
+                      <option value="adventure">Adventure</option>
+                      <option value="strategy">Strategy</option>
+                      <option value="action">Action</option>
+                      <option value="puzzle">Puzzle</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="title-text">Title</label>
+                    <input type="text" id="title-text" class="form-control" aria-describedby="title-text"
+                      placeholder="Enter Title">
                   </div>
                   <div class="form-group">
                     <label for="name-text">Name</label>
@@ -68,9 +73,6 @@
                 </form>
 
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
             </div>
 
           </div>
@@ -78,7 +80,7 @@
 
       </div>
       <!-- First Photo Grid-->
-      <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+      <div class="w3-row-padding w3-padding-16 w3-center">
         <div class="w3-quarter image_container">
           <img src="/assets/images/sample.jpg" alt="" style="width:100%">
 
@@ -122,9 +124,9 @@
 
 
       <ul id="post-list" class="list-group">
-        {{#each post}}
+        {{#each posts}}
         <li data-id="{{this.id}}" class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="api/posts/{{this.id}}">{{this.name}}</a>
+          <a href="api/posts/{{this.id}}">{{this.title}}</a>
           <button class="btn btn-danger float-right delete">ｘ</button>
         </li>
         {{/each}}
@@ -161,4 +163,3 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/js/index.js"></script>
-  
