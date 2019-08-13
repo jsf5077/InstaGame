@@ -4,10 +4,20 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Post.findAll({}).then(function(dbPosts) {
-      console.log(dbPosts);
+      // console.log(dbPosts);
+      var sortedPost = dbPosts.sort(function(a, b) {
+        console.log("updatedAt", a.updatedAt);
+        if (a.updatedAt < b.updatedAt) {
+          return 1;
+        }
+        if (a.updateAt > b.updatedAt) {
+          return -1;
+        }
+        return 0;
+      });
       res.render("index", {
         msg: "Welcome!",
-        posts: dbPosts
+        posts: sortedPost
       });
     });
   });
