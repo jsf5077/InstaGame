@@ -41,12 +41,15 @@ var refreshPosts = function() {
     console.log(data);
     var $posts = data.map(function(post) {
       var $a = $("<a>")
-        .text(post.title)
+        .text(post.title + " | " + post.game + " | " + post.console)
         .attr("href", "/post/" + post.id);
 
       var $li = $("<li>")
         .attr({
-          class: "list-group-item " + post.genre + " ",
+          class:
+            "list-group-item filterDiv " +
+            post.genre +
+            " justify-content-between align-items-center show ",
           "data-id": post.id
         })
         .append($a);
