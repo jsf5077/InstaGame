@@ -1,9 +1,8 @@
 <div id="home">
-  <div class="container">
-    <div class="container">
-      <div class="jumbotron row d-flex justify-content-between align-items-center">
+  
+      <div class="jumbotron row d-flex justify-content-between py-4 align-items-center">
         <div class="col-md-6">
-          <h2>This is our Home Page!</h2>
+          <h1>Welcome to InstaGame</h1>
         </div>
         <div class="col-3
            justify-content-end p-0 m-0"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
@@ -85,8 +84,8 @@
         <div class="w3-row-padding w3-padding-16 w3-center">
 
           <div class="w3-quarter image_container">
-            <button class="button active" onclick="filterSelection('all')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button button3  p-0 active " onclick="filterSelection('all')">
+              <img id="roundCorners" src="/assets/images/all_genres.jpg" alt="" style="width:100%">
             </button>
           </div>
         </div>
@@ -95,26 +94,26 @@
         <div class="w3-row-padding w3-padding-16 w3-center">
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('fps')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button  type="button btn" class="button p-0" onclick="filterSelection('fps')">
+              <img id="roundCorners" src="/assets/images/fps.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('rpg')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('rpg')">
+              <img id="roundCorners" src="/assets/images/rpg.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('sports')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('sports')">
+              <img id="roundCorners" src="/assets/images/sports.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('racing')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('racing')">
+              <img id="roundCorners" src="/assets/images/racing.jpg" alt="" style="width:100%">
             </button>
           </div>
 
@@ -124,26 +123,26 @@
         <div class="w3-row-padding w3-padding-16 w3-center">
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('adventure')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('adventure')">
+              <img id="roundCorners" src="/assets/images/adventure.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('strategy')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('strategy')">
+              <img id="roundCorners" src="/assets/images/strategy.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('action')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('action')">
+              <img id="roundCorners" src="/assets/images/action.jpg" alt="" style="width:100%">
             </button>
           </div>
 
           <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('puzzle')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
+            <button class="button p-0" onclick="filterSelection('puzzle')">
+              <img id="roundCorners" src="/assets/images/puzzle.jpg" alt="" style="width:100%">
             </button>
           </div>
 
@@ -166,8 +165,7 @@
         </ul>
       </div>
 
-    </div>
-  </div>
+    
 
 
   <hr>
@@ -176,7 +174,10 @@
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
       <h3>FOOTER</h3>
-      <i class="fab fa-github fa-3x"></i>
+
+      <a><i class="fab fa-github fa-3x"></i></a>
+
+
       <p><a href="/api/posts">API Posts List</a></p>
       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </div>
