@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Runner6998!",
+    "password": "hollow215",
     "database": "blogdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Runner6998!",
+    "password": "hollow215",
     "database": "blogdb",
     "host": "localhost",
     "dialect": "mysql",

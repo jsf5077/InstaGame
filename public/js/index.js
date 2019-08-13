@@ -35,7 +35,7 @@ var API = {
   }
 };
 
-// refreshPosts gets new examples from the db and repopulates the list
+// refreshPosts gets new posts from the db and repopulates the list
 var refreshPosts = function() {
   API.getPosts().then(function(data) {
     console.log(data);
@@ -46,7 +46,10 @@ var refreshPosts = function() {
 
       var $li = $("<li>")
         .attr({
-          class: "list-group-item " + post.genre + " ",
+          class:
+            "list-group-item filterDiv " +
+            post.genre +
+            " justify-content-between align-items-center show",
           "data-id": post.id
         })
         .append($a);
@@ -65,8 +68,8 @@ var refreshPosts = function() {
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new post
+// Save the new post to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -107,8 +110,8 @@ var handleFormSubmit = function(event) {
   $postDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
+// handleDeleteBtnClick is called when an post's delete button is clicked
+// Remove the post from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
