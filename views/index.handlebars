@@ -1,238 +1,266 @@
 <div id="home">
-  <div class="container">
-    <div class="container">
-      <div class="jumbotron row d-flex justify-content-between align-items-center">
-        <div class="col-md-6">
-          <h2>This is our Home Page!</h2>
-        </div>
-        <div class="col-3
-           justify-content-end p-0 m-0"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-            data-target="#myModal">Make a Post!</button></div>
-      </div>
+
+  <div class="jumbotron row d-flex justify-content-between py-4 align-items-center">
+    <div class="col-md-1">
     </div>
-    <div class="col-8 offset-2">
-
-      <div class="container">
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Create Your Post</h4>
-              </div>
-              <div class="modal-body">
-                <form class="clearfix mb-4" action="POST">
-                  <div class="form-group">
-                    <label for="genre-game">Genre</label>
-                    <select class="answer" id="genre-game">
-                      <option value="rpg">Role Playing Game</option>
-                      <option value="fps">First Person Shooter</option>
-                      <option value="sports">Sports</option>
-                      <option value="racing">Racing</option>
-                      <option value="adventure">Adventure</option>
-                      <option value="strategy">Strategy</option>
-                      <option value="action">Action</option>
-                      <option value="puzzle">Puzzle</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="title-text">Title</label>
-                    <input type="text" id="title-text" class="form-control" aria-describedby="title-text"
-                      placeholder="Enter Title">
-                  </div>
-                  <div class="form-group">
-                    <label for="name-text">Name</label>
-                    <input type="text" id="name-text" class="form-control" aria-describedby="name-text"
-                      placeholder="Enter Name Text">
-                  </div>
-                  <div class="form-group">
-                    <label for="console-text">Console</label>
-                    <input type="text" id="console-text" class="form-control" aria-describedby="console-text"
-                      placeholder="Enter Console Text">
-                  </div>
-                  <div class="form-group">
-                    <label for="sn-text">In Game Screen Name</label>
-                    <input type="text" id="sn-text" class="form-control" aria-describedby="sn-text"
-                      placeholder="Enter Screen Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="game-text">Game</label>
-                    <input type="text" id="game-text" class="form-control" aria-describedby="game-text"
-                      placeholder="Enter Game Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="post-description">Post</label>
-                    <textarea class="form-control" id="post-description" aria-describedby="post-description"
-                      placeholder="Enter Post Description"></textarea>
-                  </div>
-                  <button id="submit" class="btn btn-primary float-right">Submit</button>
-                </form>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div id="myBtnContainer">
-
-        <!-- First Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center">
-
-          <div class="w3-quarter image_container">
-            <button class="button active" onclick="filterSelection('all')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-        </div>
-
-        <!-- Second Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center">
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('fps')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('rpg')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('sports')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('racing')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Third Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center">
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('adventure')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('strategy')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('action')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-          <div class="w3-quarter image_container">
-            <button class="button" onclick="filterSelection('puzzle')">
-              <img src="/assets/images/sample.jpg" alt="" style="width:100%">
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-
-      <h3>Posts:</h3>
-
-
-      <div class="container">
-        <ul id="post-list" class="list-group">
-          {{#each posts}}
-          <li data-id="{{this.id}}"
-            class="list-group-item filterDiv {{this.genre}} justify-content-between align-items-center">
-            <a href="/post/{{this.id}}">{{this.title}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-
+    <div class="col-md-8 pl-6">
+      <h1>Welcome to InstaGame &nbsp<i class="fas fa-gamepad"></i></h1>
+    </div>
+    <div class="col-md-3 align-self-end">
+      <h1>
+        <i class="fab fa-xbox"></i>&nbsp
+        <i class="fab fa-playstation"></i>&nbsp
+        <i class="fab fa-steam"></i>
+      </h1>
     </div>
   </div>
+  <div class="col-8 offset-2">
 
+    <div class="container">
 
-  <hr>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-  <!-- Footer -->
-  <footer class="w3-row-padding w3-padding-32">
-    <div class="w3-third">
-      <h3>FOOTER</h3>
-      <i class="fab fa-github fa-3x"></i>
-      <p><a href="/api/posts">API Posts List</a></p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create Your Post</h4>
+            </div>
+            <div class="modal-body">
+              <form class="clearfix mb-4" action="POST">
+                <div class="form-group">
+                  <label for="genre-game">Genre</label>
+                  <select class="answer" id="genre-game">
+                    <option value="rpg">Role Playing Game</option>
+                    <option value="fps">First Person Shooter</option>
+                    <option value="sports">Sports</option>
+                    <option value="racing">Racing</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="action">Action</option>
+                    <option value="puzzle">Puzzle</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="title-text">Title</label>
+                  <input type="text" id="title-text" class="form-control" aria-describedby="title-text"
+                    placeholder="Enter Title">
+                </div>
+                <div class="form-group">
+                  <label for="name-text">Name</label>
+                  <input type="text" id="name-text" class="form-control" aria-describedby="name-text"
+                    placeholder="Enter Name Text">
+                </div>
+                <div class="form-group">
+                  <label for="console-text">Console</label>
+                  <input type="text" id="console-text" class="form-control" aria-describedby="console-text"
+                    placeholder="Enter Console Text">
+                </div>
+                <div class="form-group">
+                  <label for="sn-text">In Game Screen Name</label>
+                  <input type="text" id="sn-text" class="form-control" aria-describedby="sn-text"
+                    placeholder="Enter Screen Name">
+                </div>
+                <div class="form-group">
+                  <label for="game-text">Game</label>
+                  <input type="text" id="game-text" class="form-control" aria-describedby="game-text"
+                    placeholder="Enter Game Name">
+                </div>
+                <div class="form-group">
+                  <label for="post-description">Post</label>
+                  <textarea class="form-control" id="post-description" aria-describedby="post-description"
+                    placeholder="Enter Post Description"></textarea>
+                </div>
+                <button id="submit" class="btn btn-primary float-right">Submit</button>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div id="myBtnContainer">
+
+      <!-- First Photo Grid-->
+      <div class="w3-row-padding w3-center ">
+        <div class="w3-col "></div>
+
+        <div class=" w3-content image_container" style="max-width:160px">
+          <button class="button button3  p-0 active " onclick="filterSelection('all')">
+            <img id="roundCorners" src="/assets/images/all_genres.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-col "></div>
+      </div>
+
+      <!-- Second Photo Grid-->
+      <div class="w3-row-padding w3-padding-16 ">
+
+        <div class="w3-quarter image_container">
+          <button type="button btn" class="button p-0" onclick="filterSelection('fps')">
+            <img id="roundCorners" src="/assets/images/fps.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('rpg')">
+            <img id="roundCorners" src="/assets/images/rpg.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('sports')">
+            <img id="roundCorners" src="/assets/images/sports.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('racing')">
+            <img id="roundCorners" src="/assets/images/racing.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Third Photo Grid-->
+      <div class="w3-row-padding w3-padding-16 w3-center">
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('adventure')">
+            <img id="roundCorners" src="/assets/images/adventure.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('strategy')">
+            <img id="roundCorners" src="/assets/images/strategy.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('action')">
+            <img id="roundCorners" src="/assets/images/action.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+        <div class="w3-quarter image_container">
+          <button class="button p-0" onclick="filterSelection('puzzle')">
+            <img id="roundCorners" src="/assets/images/puzzle.jpg" alt="" style="width:100%">
+          </button>
+        </div>
+
+      </div>
     </div>
 
-  </footer>
+    <hr>
 
-  <script>
-   filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
-
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
-    }
-  }
-  element.className = arr1.join(" ");
-}
-
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("button");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+    <div class="container">
+      <div class="text-center">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="postBtn">Make a
+          Post!</button>
+      </div>
+    </div>
 
 
-$(document).ready(function(){  
-      $(this).hide();
-});
-  </script>
+    <h3>Posts:</h3>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/js/index.js"></script>
-  {{!-- <script src="/js/filter.js"></script> --}}
+
+    <div class="container">
+      <ul id="post-list" class="list-group">
+        {{#each posts}}
+        <li data-id="{{this.id}}"
+          class="list-group-item filterDiv {{this.genre}} justify-content-between align-items-center">
+          <a href="/post/{{this.id}}">{{this.title}} | {{this.game}} | {{this.console}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <br>
+    <hr>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-start">
+            <h3>JNP Productions</h3>
+            <p>InstaGame - The place where gamers can communicate. Welcome to our blog</p>
+          </div>
+          <div class="col align-self-center">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+             &nbsp and &nbsp<a href="https://getbootstrap.com/" target="_blank"><i class="fab fa-bootstrap"></i></a></p>
+          </div>
+          <div class="col align-self-end">
+            <a href="https://github.com/jsf5077/InstaGame"><i class="fab fa-github fa-3x"></i></a>
+            <p><a href="/api/posts">API Posts List</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+      }
+
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+        }
+      }
+
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("button");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+
+
+      $(document).ready(function () {
+        $(this).hide();
+      });
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+    {{!-- <script src="/js/filter.js"></script> --}}
