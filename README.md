@@ -5,7 +5,7 @@ Welcome to InstaGame! An application for all gamers alike to have a community of
 ## Deployment
 
 This application is deployed on Heroku.
-link: 
+link: https://sheltered-badlands-92972.herokuapp.com
 
 ## Home Page
 
