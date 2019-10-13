@@ -11,6 +11,9 @@ link: https://sheltered-badlands-92972.herokuapp.com
 
 The InstaGame application has two major components; the genre tabs and the blog post section. In the genre tabs section, gamers and visitors can select a genre and the site will filter all blog posts, only showing posts from that selected genre. There is also a tab to show all posts as well. The posts section is where the blog posts display. There is also a "make a psot" button that will open a modal that allows a user to submit a new blog post. In order to see a post's conent, the user can click on the link in the post and the post will open in a seperate html and display the content. 
 
+## Screenshot
+![image](https://user-images.githubusercontent.com/37354778/66722786-d7788300-eddf-11e9-8807-c48a2b1b5c86.png)
+
 ## Server side 
 
 **The Directory Structure consists of:** 
